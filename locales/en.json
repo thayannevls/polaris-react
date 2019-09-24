@@ -29,6 +29,10 @@
       "connectedDisclosureAccessibilityLabel": "Related actions"
     },
 
+    "ColorPicker": {
+      "invalidColor": "Invalid color"
+    },
+
     "Common": {
       "checkbox": "checkbox",
       "undo": "Undo",
