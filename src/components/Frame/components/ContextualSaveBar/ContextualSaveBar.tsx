@@ -4,6 +4,7 @@ import {Button} from '../../../Button';
 import {Image} from '../../../Image';
 import {Stack} from '../../../Stack';
 import {ThemeProvider} from '../../../ThemeProvider';
+import {ContextualSaveBarContext} from '../../../../utilities/contextualsavebar-context';
 import {classNames} from '../../../../utilities/css';
 import {useFeatures} from '../../../../utilities/features';
 import {ContextualSaveBarProps} from '../../../../utilities/frame';
@@ -109,20 +110,22 @@ export function ContextualSaveBar({
   );
 
   return (
-    <ThemeProvider theme={{colorScheme: 'inverse'}}>
-      <div className={contexualSaveBarClassName}>
-        {logoMarkup}
-        <div className={styles.Contents}>
-          <h2 className={styles.Message}>{message}</h2>
-          <div className={styles.ActionContainer}>
-            <Stack spacing="tight" wrap={false}>
-              {discardActionMarkup}
-              {saveActionMarkup}
-            </Stack>
+    <ContextualSaveBarContext.Provider value>
+      <ThemeProvider theme={{colorScheme: 'inverse'}}>
+        <div className={contexualSaveBarClassName}>
+          {logoMarkup}
+          <div className={styles.Contents}>
+            <h2 className={styles.Message}>{message}</h2>
+            <div className={styles.ActionContainer}>
+              <Stack spacing="tight" wrap={false}>
+                {discardActionMarkup}
+                {saveActionMarkup}
+              </Stack>
+            </div>
           </div>
         </div>
-      </div>
-      {discardConfirmationModalMarkup}
-    </ThemeProvider>
+        {discardConfirmationModalMarkup}
+      </ThemeProvider>
+    </ContextualSaveBarContext.Provider>
   );
 }
