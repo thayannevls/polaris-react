@@ -4,7 +4,7 @@ import {focusFirstFocusableNode} from '@shopify/javascript-utilities/focus';
 export interface FocusProps {
   children?: React.ReactNode;
   disabled?: boolean;
-  root: HTMLElement | null;
+  root: React.RefObject<HTMLElement> | HTMLElement | null;
 }
 
 export const Focus = memo(function Focus({
@@ -13,8 +13,22 @@ export const Focus = memo(function Focus({
   root,
 }: FocusProps) {
   useEffect(() => {
-    if (disabled || !root || root.querySelector('[autofocus]')) return;
-    focusFirstFocusableNode(root, false);
+    if (disabled || !root) {
+      return;
+    }
+
+    let node: HTMLElement | null;
+    if ('current' in root) {
+      node = (root as React.RefObject<HTMLElement>).current;
+    } else {
+      node = root as HTMLElement;
+    }
+
+    if (!node || node.querySelector('[autofocus]')) {
+      return;
+    }
+
+    focusFirstFocusableNode(node, false);
   }, [disabled, root]);
 
   return <React.Fragment>{children}</React.Fragment>;
