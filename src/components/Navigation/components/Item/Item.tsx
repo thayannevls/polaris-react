@@ -9,7 +9,6 @@ import React, {
 } from 'react';
 
 import {classNames} from '../../../../utilities/css';
-
 import {NavigationContext} from '../../context';
 import {Badge} from '../../../Badge';
 import {Icon} from '../../../Icon';
@@ -18,7 +17,6 @@ import {Indicator} from '../../../Indicator';
 import {UnstyledLink} from '../../../UnstyledLink';
 import {useI18n} from '../../../../utilities/i18n';
 import {useMediaQuery} from '../../../../utilities/media-query';
-
 import styles from '../../Navigation.scss';
 
 import {Secondary} from './components';
@@ -233,7 +231,7 @@ export function Item({
 
   let secondaryNavigationMarkup: ReactNode = null;
 
-  if (subNavigationItems.length > 0) {
+  if (subNavigationItems.length > 0 && showExpanded) {
     const longestMatch = matchingSubNavigationItems.sort(
       ({url: firstUrl}, {url: secondUrl}) => secondUrl.length - firstUrl.length,
     )[0];
