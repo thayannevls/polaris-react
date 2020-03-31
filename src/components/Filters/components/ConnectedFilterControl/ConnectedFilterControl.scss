@@ -77,7 +77,7 @@ $stacking-order: (
 }
 
 .RightContainerWithoutMoreFilters {
-  .Item > * > * {
+  .Item:last-child > * > * {
     border-top-right-radius: var(
       --p-border-radius-base,
       border-radius()
