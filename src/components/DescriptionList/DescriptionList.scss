@@ -16,10 +16,14 @@ $breakpoint: 550px;
 .Term {
   @include text-emphasis-strong;
   padding: spacing() 0 spacing(tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
 
   @include page-content-breakpoint-after($breakpoint) {
     flex: 0 1 25%;
     padding: spacing() spacing() spacing() 0;
+    word-break: normal;
 
     // stylelint-disable-next-line selector-max-class, selector-max-combinators
     .Description + & + .Description {
@@ -31,6 +35,7 @@ $breakpoint: 550px;
 .Description {
   margin-left: 0;
   padding: 0 0 spacing();
+  word-break: break-all;
 
   + .Term {
     border-top: border();
@@ -39,6 +44,9 @@ $breakpoint: 550px;
   @include page-content-breakpoint-after($breakpoint) {
     flex: 1 1 51%;
     padding: spacing() 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: normal;
 
     // stylelint-disable-next-line selector-max-class, selector-max-combinators
     + .Term + .Description {
