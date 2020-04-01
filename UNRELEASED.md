@@ -4,6 +4,8 @@
 
 ### Enhancements
 
+- Added functionality to that hides the `ResourceList` when `showHeader` is set to `false` explicitely ([#2885](https://github.com/Shopify/polaris-react/pull/2885)).
+
 ### Bug fixes
 
 - Fixed right padding styling issue with the `Tag` component and remove right padding on a removable `Tag` ([#2860](https://github.com/Shopify/polaris-react/pull/2860)).
