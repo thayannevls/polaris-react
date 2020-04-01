@@ -4,7 +4,7 @@
 
 ### Enhancements
 
-- Added functionality to that hides the `ResourceList` when `showHeader` is set to `false` explicitely ([#2885](https://github.com/Shopify/polaris-react/pull/2885)).
+- Added functionality to `ResourceList` that hides the header when `showHeader` is set to `false` explicitly ([#2885](https://github.com/Shopify/polaris-react/pull/2885)).
 
 ### Bug fixes
 
