@@ -384,7 +384,7 @@ class ResourceListInner extends React.Component<CombinedProps, State> {
       bulkActions,
       filterControl,
       loading,
-      showHeader = false,
+      showHeader,
       sortOptions,
       sortValue,
       alternateTool,
@@ -480,6 +480,7 @@ class ResourceListInner extends React.Component<CombinedProps, State> {
 
     const headerMarkup = !showEmptyState &&
       (showHeader || needsHeader) &&
+      showHeader !== false &&
       this.listRef.current && (
         <div className={styles.HeaderOuterWrapper}>
           <Sticky boundingElement={this.listRef.current}>
